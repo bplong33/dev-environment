@@ -1,0 +1,52 @@
+# place this file at one of the following locations
+#     $HOME/.alacritty.toml
+#     %APPDATA%\alacritty\alacritty.toml
+# More information on alacritty can be found at https://github.com/alacritty/alacritty
+
+shell = { program = "C:\\Windows\\System32\\wsl.exe ~" }
+
+###############
+# Font
+###############
+
+[font.normal]
+family="Mononoki Nerd Font"
+style="Regular"
+
+
+###############
+# Colors
+###############
+
+# Default colors
+[colors.primary]
+background='0x2D2A2E'
+foreground='0xfff1f3'
+
+# Normal colors
+[colors.normal]
+black='0x2c2525'
+red='0xfd6883'
+green='0xadda78'
+yellow='0xf9cc6c'
+blue='0xf38d70'
+magenta='0xa8a9eb'
+cyan='0x85dacc'
+white='0xfff1f3'
+
+# Bright colors
+[colors.bright]
+black='0x72696a'
+red='0xfd6883'
+green='0xadda78'
+yellow='0xf9cc6c'
+blue='0xf38d70'
+magenta='0xa8a9eb'
+cyan='0x85dacc'
+white='0xfff1f3'
+
+###############
+# Selection
+###############
+[selection]
+save_to_clipboard=true
