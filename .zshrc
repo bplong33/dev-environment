@@ -129,6 +129,7 @@ alias gsmur='git submodule update --init --recursive'
 # 	kubeval --strict --kubernetes-version 1.23.17 helm.yaml
 # }
 
+#### Day To Day Aliases
 # Git Aliases
 alias gs='git status'
 alias gc='git commit'
@@ -138,7 +139,15 @@ alias gd='git diff'
 alias ga='git add'
 alias gsmur='git submodule update --init --recursive'
 
-# Random Aliases
+# Tmux aliases
+alias t='tmux'
+alias tls='tmux ls'
+alias tn='tmux new -s'
+alias ta='tmux attach'
+alias tan='tmux attach -t'
+alias tmks='tmux kill-session -a'
+
+#### Random Aliases
 nvnu() {
 	cd ~/neovim
 	git fetch --all --tags --force
