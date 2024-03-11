@@ -97,39 +97,16 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-bindkey '^k' autosuggest-accept
+bindkey '^J' autosuggest-accept
 
 # User configuration
 
 ##### Aliases #####
 
-# Kubernetes Aliases
-# alias k='kubectl'
-# alias kns='kubens'
-# alias kx='kubectx'
-# alias kl='kubectl login'
-# alias ke='kubeval --strict --kubernetes-version 1.23.17 helm.yaml'
-# alias h='helm'
-# alias ylint="yamllint --strict --config-data '{extends: default, rules: {line-length: {max: 9999}, colons: {max-spaces-after: -1}, indentation: {indent-sequences: whatever}, comments: disable, comments-indentation: disable, document-start: disable}}' Chart.yaml values.yaml"
-alias cls='clear'
-alias gsmur='git submodule update --init --recursive'
-# kpgpod() {
-# 	kubectl get pod -l application=spilo,cluster-name="$1",spilo-role=master -o name
-# }
-# ki() {
-# 	kubectl get deploy $1 -oyaml | grep image:
-# }
-#
-# chartcheck() {
-# 	echo "Running helm template"
-# 	helm template -n $1 --values $2 . > helm.yaml
-# 	echo "Running yamllint"
-# 	yamllint --strict --config-data '{extends: default, rules: {line-length: {max: 9999}, colons: {max-spaces-after: -1}, indentation: {indent-sequences: whatever}, comments: disable, comments-indentation: disable, document-start: disable}}' Chart.yaml values.yaml
-# 	echo "Running kubeval"
-# 	kubeval --strict --kubernetes-version 1.23.17 helm.yaml
-# }
-
 #### Day To Day Aliases
+
+alias cls='clear'
+
 # Git Aliases
 alias gs='git status'
 alias gc='git commit'
@@ -186,7 +163,11 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+if [[ -f $HOME/.zshrc_local ]]; then
+  . $HOME/.zshrc_local
+fi
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -196,4 +177,3 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# eval "$(zoxide init zsh)"
