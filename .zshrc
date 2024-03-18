@@ -84,7 +84,6 @@ ZSH_CUSTOM=$ZSH/custom/
 plugins=(
 	git
 	web-search
-	# kubectl
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	copybuffer
@@ -130,8 +129,7 @@ nvnu() {
 	git fetch --all --tags --force
 	git checkout nightly
 	make CMAKE_BUILD_TYPE=RelWithDebInfo
-	# sudo make install
-	cd build && cpack -G DEB && Sudo dpkg -i nvim-linux64.deb
+	sudo make install
 	cd ~
 }
 alias c.='code .'
