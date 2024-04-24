@@ -1,0 +1,33 @@
+# This file contains aliases that may not be required, depending on the tools being used. 
+
+# plugins=(
+#   kubectl
+# )
+
+alias alacritty-config='nvim /mnt/c/Users/blong/AppData/Roaming/alacritty/alacritty.toml'
+# Kubernetes Aliases
+alias k='kubectl'
+alias kns='kubens'
+alias kx='kubectx'
+alias kgp='kubectl get pods'
+alias cls='clear'
+alias kl='kubectl login'
+alias gsmur='git submodule update --init --recursive'
+alias h='helm'
+alias ke='kubeval --strict --kubernetes-version 1.23.17 helm.yaml'
+alias ylint="yamllint --strict --config-data '{extends: default, rules: {line-length: {max: 9999}, colons: {max-spaces-after: -1}, indentation: {indent-sequences: whatever}, comments: disable, comments-indentation: disable, document-start: disable}}' Chart.yaml values.yaml"
+kpgpod() {
+	kubectl get pod -l application=spilo,cluster-name="$1",spilo-role=master -o name
+}
+ki() {
+	kubectl get deploy $1 -oyaml | grep image:
+}
+
+chartcheck() {
+	echo "Running helm template"
+	helm template -n $1 --values $2 . > helm.yaml
+	echo "Running yamllint"
+	yamllint --strict --config-data '{extends: default, rules: {line-length: {max: 9999}, colons: {max-spaces-after: -1}, indentation: {indent-sequences: whatever}, comments: disable, comments-indentation: disable, document-start: disable}}' Chart.yaml values.yaml
+	echo "Running kubeval"
+	kubeval --strict --kubernetes-version 1.23.17 helm.yaml
+}
