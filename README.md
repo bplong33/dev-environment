@@ -54,7 +54,7 @@ default=username
 
 <!-- File Links -->
 [`alacritty.toml`]: ./alacritty.toml
-[`espresso`]: ./espresso.json
+[`everforest.json`]: ./everforest.json
 
 <!-- Tool Links --> 
 [Alacritty Download]: https://alacritty.org/
