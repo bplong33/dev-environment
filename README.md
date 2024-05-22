@@ -43,7 +43,7 @@ default=username
 ### Set Theme
 * Open Windows Terminal's settings page, and click the `Open JSON file` option in the bottom left
 * Copy the [`everforest.json`] file into the `schemes` section of the settings.
-* In the Windows Terminal Settings UI, go to your linux box settings > Aappearance and Choose `Everforest` as the theme.
+* In the Windows Terminal Settings UI, go to your linux box settings > Appearance and Choose `Everforest` as the theme.
 
 ## Setup Neovim
 * Install build deps: `sudo dnf install g++ cmake python3.11`
